@@ -9,12 +9,12 @@ You can also include images in this folder and reference them in the markdown. E
 
 ## How it works
 
-Se trata de la construcción de una ALU capaz de ejecutar diversas operaciones, la cuál será definida mediante un selector
+Se trata de una FSM que clasifica el café por calidad
 
 ## How to test
 
-Haciendo uso de una combinación de bits se selecciona la operación que se desea ejecutar
+Mediante sensores que determinan tamaño, peso y color
 
 ## External hardware
 
-Hace uso de pulsadores o switch com entrada; mientras en la salida hace uso de LEDs
+Hace uso de sensores digitales y LED's indicadores
