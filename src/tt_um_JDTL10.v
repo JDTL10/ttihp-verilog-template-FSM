@@ -10,15 +10,16 @@ module tt_um_JDTL10 (
     input  wire        ena
 );
 
-    // Desactivar bidireccionales (no usados)
+    /* verilator lint_off UNUSEDSIGNAL */
+    wire unused = |ui_in[7:3] | |uio_in | ena;
+    /* verilator lint_on UNUSEDSIGNAL */
+
     assign uio_out = 8'b0;
     assign uio_oe  = 8'b0;
 
-    // Señales para leds y estado
     wire led_low, led_medium, led_high;
     wire [1:0] current_state;
 
-    // Instancia FSM
     FSM fsm_inst (
         .clk(clk),
         .rst_n(rst_n),
@@ -31,7 +32,6 @@ module tt_um_JDTL10 (
         .current_state_o(current_state)
     );
 
-    // Mapea LEDs en uo_out (bits 0,1,2)
     assign uo_out = {5'b0, led_high, led_medium, led_low};
 
 endmodule
