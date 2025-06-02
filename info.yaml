@@ -1,9 +1,9 @@
 # Tiny Tapeout project information
 project:
-  title:        "ALU Compacta"
+  title:        "FSM Clasificación de Calidad"
   author:       "JDTL10"
   discord:      ""
-  description:  "ALU compacta 4+4 bits con selección de operación embebida y salida de flags"
+  description:  "FSM que clasifica la calidad de productos según sensores y enciende LEDs correspondientes"
   language:     "Verilog"
   clock_hz:     0
 
@@ -11,31 +11,31 @@ project:
   top_module:  "tt_um_JDTL10"
 
   source_files:
-    - "ALU.v"
+    - "FSM.v"
     - "tt_um_JDTL10.v"
 
 pinout:
-  # Inputs (ui_in → 8 bits)
-  ui[0]: "A0"          # Operando A bit 0 (también OpSel LSB)
-  ui[1]: "A1"          # Operando A bit 1 (también OpSel MSB)
-  ui[2]: "A2"          # Operando A bit 2
-  ui[3]: "A3"          # Operando A bit 3
-  ui[4]: "B0"          # Operando B bit 0
-  ui[5]: "B1"          # Operando B bit 1
-  ui[6]: "B2"          # Operando B bit 2
-  ui[7]: "B3"          # Operando B bit 3
+  # Entradas (ui_in → 8 bits)
+  ui[0]: "Peso OK"         # Sensor de peso
+  ui[1]: "Tamaño OK"       # Sensor de tamaño
+  ui[2]: "Color OK"        # Sensor de color
+  ui[3]: ""                # No usado
+  ui[4]: ""                # No usado
+  ui[5]: ""                # No usado
+  ui[6]: ""                # No usado
+  ui[7]: ""                # No usado
 
-  # Outputs (uo_out → 8 bits)
-  uo[0]: "Result0"     # Resultado bit 0 (LSB)
-  uo[1]: "Result1"     # Resultado bit 1
-  uo[2]: "Result2"     # Resultado bit 2
-  uo[3]: "Result3"     # Resultado bit 3 (MSB)
-  uo[4]: "CarryOut"    # Flag de acarreo
-  uo[5]: "Overflow"    # Flag de desbordamiento
-  uo[6]: "Zero"        # Flag de resultado cero
-  uo[7]: "Negative"    # Flag de resultado negativo
+  # Salidas (uo_out → 8 bits)
+  uo[0]: "LED Bajo"        # LED para baja calidad
+  uo[1]: "LED Medio"       # LED para media calidad
+  uo[2]: "LED Alto"        # LED para alta calidad
+  uo[3]: ""                # No usado
+  uo[4]: ""                # No usado
+  uo[5]: ""                # No usado
+  uo[6]: ""                # No usado
+  uo[7]: ""                # No usado
 
-  # Bidirectional pins (no usados)
+  # Pines bidireccionales (no usados)
   uio[0]: ""
   uio[1]: ""
   uio[2]: ""
